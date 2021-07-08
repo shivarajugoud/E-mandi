@@ -1,0 +1,11 @@
+<app-navigation></app-navigation>
+<h1>Welcome to E - Mandi</h1>
+<hr>
+<div class="container">
+  <br>
+  <div class="row">
+    <div class="col-3 align-left" *ngFor="let product of products"><br>
+      <app-product [product]="product" (productAddToCart)="addToCart($event)">Loading...</app-product>
+    </div>
+  </div>
+</div>

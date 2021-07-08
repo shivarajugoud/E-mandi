@@ -1,0 +1,26 @@
+<app-navigation></app-navigation>
+<div class="container">
+        <br>
+        <form [formGroup]="editItem" class="form-horizontal shadow p-3 mb-5 bg-white rounded" (ngSubmit)="updateProd()">
+                <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Product Name" formControlName="productName" value="{{product.productName}}">
+                </div>
+                <div class="form-group">
+                        <textarea type="text" class="form-control" placeholder="description" formControlName="description" rows="5" value="{{product.description}}"></textarea>
+                </div>
+                <div class="form-group">
+                        <input type="text" class="form-control" placeholder="quantity" formControlName="quantity" value="{{product.quantity}}">
+                </div>
+                <div class="form-group">
+                        <input type="text" class="form-control" placeholder="price" formControlName="price" value="{{product.price}}">
+                </div>
+                <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Product image URL" formControlName="imageUrl" value="{{product.imageUrl}}">
+                </div>
+                <div class="row">
+                        <div class="col-6">
+                                <input type="submit" class=" btn btn-secondary" value="Update Product">
+                        </div>
+                </div>
+        </form>
+</div>

@@ -1,0 +1,32 @@
+<div class="container">
+    <br>
+
+  <a routerLink="/home" class="btn btn-primary"><i class="fa fa-angle-left"></i> Continue shopping</a><br><br>
+    <div class="row">
+        <div class="col-6 align-left" let order of orderlist>
+            <div class="card shadow p-3 mb-5 bg-white rounded">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <p class="card-title"><b>Order </b> </p>
+                            <p class="card-title"><b>No.of orders </b> {{this.totalCount}}</p>
+                            <p class="card-text"><b>Status</b> Accepted</p>
+                        </div>
+
+
+                    </div>
+                    <br>
+                    <h5>Order Details</h5>
+                    <div class="row">
+                         <div class="col" let order of orderlist>
+                            <p class="card-title">Product : {{order.productname}}</p>
+                            <p class="card-text">Price : {{order.price  | currency:'INR'}}</p>
+                            <p class="card-text">Total : {{order.totalprice}}</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

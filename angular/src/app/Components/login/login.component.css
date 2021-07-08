@@ -1,0 +1,13 @@
+.login-card{
+    text-align: center;
+}
+.card{
+    height: 200px;
+}
+.row{
+    margin-top: 15px;
+}
+.card-body{
+    display: flex;
+   justify-content: center;
+}

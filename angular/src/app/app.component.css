@@ -1,0 +1,17 @@
+.jumbotron {
+  margin-bottom: 0;
+  background-color: rgb(98, 189, 224);
+}
+
+.head-title {
+  margin-bottom: 30px;
+  color: white;
+  background-color: coral;
+  width: auto;
+}
+.title-card{
+  width: 100%;
+  background-color: coral;
+  color: white;
+  padding: 10px 5px;
+}

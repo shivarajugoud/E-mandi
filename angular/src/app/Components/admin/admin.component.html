@@ -1,0 +1,74 @@
+<app-navigation></app-navigation>
+<div class="container">
+        <div class="row">
+                <div class="col-12">
+                        <button class="mybtn btn btn-secondary" (click)="show()" *ngIf="!showAdd">Click to Add Product</button>
+                        <button class="mybtn btn btn-secondary" (click)="hide()" *ngIf="showAdd">Back</button><br><br>
+                </div>
+        </div>
+
+        <form [formGroup]="addProduct" (ngSubmit)="addProd()" *ngIf="showAdd">
+                <div class="form-group">
+                        <input type="text" formControlName="productName" class="form-control" placeholder="Enter Product Name" [ngClass]="{ 'is-invalid': submitted && f.productName.errors }"  required/>
+                        <div *ngIf="submitted && f.productName.errors" class="invalid-feedback">
+                                <div *ngIf="f.productName.errors.required">Product Name is required</div>
+                        </div>
+                </div>
+
+                <div class="form-group">
+                    <input class="form-control" formControlName="description" placeholder="Enter product description" [ngClass]="{ 'is-invalid': submitted && f.description.errors }"  required/>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col">
+                        <input class="form-control" type="number" formControlName="quantity" placeholder="Quantity" [ngClass]="{ 'is-invalid': submitted && f.quantity.errors }"  required/>
+                        <div *ngIf="submitted && f.quantity.errors" class="invalid-feedback">
+                            <div *ngIf="f.quantity.errors.required">Quantity is required</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col">
+                        <input type="number" formControlName="price" class="form-control" placeholder="Price" [ngClass]="{ 'is-invalid': submitted && f.price.errors }" required />
+                        <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
+                            <div *ngIf="f.price.errors.required">Price is required</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input class="form-control" type="text" formControlName="imageUrl" placeholder="Enter Image URL" [ngClass]="{ 'is-invalid': submitted && f.imageUrl.errors }" required />
+                    <div *ngIf="submitted && f.imageUrl.errors" class="invalid-feedback">
+                        <div *ngIf="f.imageUrl.errors.required">Image URL is required</div>
+                    </div>
+                </div>
+
+                <input type="submit" class="btn btn-secondary align-right" value="ADD"><br><br>
+        </form>
+
+        <hr>
+        <div class="row">
+                <div class="col-3 align-left" *ngFor="let product of products">
+                        <div class="card shadow p-3 mb-5 bg-white rounded">
+                                <div class="card-body" style="width: 200px">
+                                        <h5 class="card-title">{{product.productName}}</h5>
+                                        <img src="{{product.imageUrl}}" class="img-responsive" height="150px" width="150px" alt="Image">
+                                        <p class="card-text"> {{product.description}}</p>
+                                        <p class="card-text"> {{product.price}}<span> rupees/kg</span></p>
+                                        <p class="card-text"> {{product.quantity}} <span>kg(s)</span></p>
+                                        <input type="hidden" value={{product.productId}} #prdid>
+                                        <div class="row">
+                                                <div class="col-6">
+                                                        <button class="btn btn-secondary" style="float: left;" (click)="edit(prdid)">Edit</button>
+                                                </div>
+                                                <br><br>
+                                                <div class="col-7">
+                                                        <button class="btn btn-danger" style="float: left; width: 100px;" (click)="delProd(prdid)">Remove</button>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </div>
+</div>

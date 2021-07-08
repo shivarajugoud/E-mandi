@@ -1,0 +1,30 @@
+<app-navigation></app-navigation>
+<div class="container">
+    <br>
+    <div class="row">
+        <div class="col-6 align-left" *ngFor="let order of orderlist">
+            <div class="card shadow p-3 mb-5 bg-white rounded">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <p class="card-title"><b>Order By:</b> {{order.userid}}</p>
+                            <p class="card-text"><b>Status:</b> Accepted</p>
+                        </div>
+
+                        
+                    </div>
+                    <br>
+                    <h5><b>Order Details:</b></h5>
+                    <div class="row">
+                        <div class="col" *ngFor="let order of orderlist">
+                            <p class="card-title">{{order.productname}}</p>
+                            <p class="card-text">Price : {{order.price  | currency:'INR'}}</p>
+                            <p class="card-text">Total: {{order.totalprice | currency:'INR'}}</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

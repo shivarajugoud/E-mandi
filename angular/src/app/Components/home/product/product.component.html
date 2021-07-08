@@ -1,0 +1,21 @@
+<div class="card">
+  <div class="card-body">
+          <h5 class="card-title">{{product.productName}}</h5>
+          <img src="{{product.imageUrl}}" class="img-responsive" height="150px"
+                  width="200px" alt="Image">
+          <p class="card-text "> {{product.description}}</p>
+          <p class="card-text "> <span>Rs. </span>{{product.price}}<span>/Kg</span></p>
+          <div class="row">
+                <div class="col">
+                        <button class="btn btn-primary" (click)="addToCart()">Add to cart</button>
+                </div>
+                <div class="col">
+                        <div class="row">
+                                <button class="btn btn-danger col" (click)="decrementSelectedQuantity()">-</button>
+                                <span class="col">{{selectedQuantityNum}}</span>
+                                <button class="btn btn-success col" (click)="incrementSelectedQuantity()">+</button>
+                        </div>
+                </div>
+          </div>
+  </div>
+</div>
